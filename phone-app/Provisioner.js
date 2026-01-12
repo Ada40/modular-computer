@@ -5,6 +5,7 @@ export class ModularComputerProvisioner {
   constructor() {
     this.esp32IP = null;
     this.connectionMode = 'bluetooth'; // or 'wifi'
+    this.baseUrl = 'https://raw.githubusercontent.com/Ada40/modular-computer/main/modules/';
   }
 
   async discoverESP32() {
@@ -62,8 +63,13 @@ export class ModularComputerProvisioner {
   }
 
   async processNeedsList(needsList) {
+    console.log('Downloading from Ada40/modular-computer...');
     // Mock processing/downloading
-    return needsList.modules.map(m => ({ name: m, status: 'downloaded' }));
+    return needsList.modules.map(m => ({ 
+      name: m, 
+      url: `${this.baseUrl}${m}.bin`,
+      status: 'downloaded' 
+    }));
   }
 
   async sendToHardware(device, downloads) {

@@ -10,6 +10,8 @@
 #define MODULE_TYPE "COMPUTE"
 #define MODULE_VERSION "1.0.0"
 
+const char* MODULE_REPO = "https://raw.githubusercontent.com/Ada40/modular-computer/main/modules/";
+
 // BLE UUIDs
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 #define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
@@ -50,6 +52,7 @@ void setup() {
   doc["type"] = MODULE_TYPE;
   doc["version"] = MODULE_VERSION;
   doc["capabilities"] = "WiFi, BLE, GPIO, UART";
+  doc["download_url"] = String(MODULE_REPO) + "esp32/wifi-manager-v2.1.bin";
   
   char buffer[200];
   serializeJson(doc, buffer);

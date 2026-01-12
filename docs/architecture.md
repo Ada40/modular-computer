@@ -31,6 +31,10 @@ The `esp32-plugin` directory contains the firmware for the ESP32 modules. This f
 - **BLE Advertising**: Uses Bluetooth Low Energy (BLE) to advertise its presence and capabilities to the phone.
 - **Communication**: Establishes communication channels (BLE, Wi-Fi, I²C, UART) with the phone for data exchange and provisioning.
 - **Self-description**: Provides a JSON-formatted description of its capabilities and any required drivers or software.
+- **Auto-Provisioning**: Broadcasts a specific download URL from the GitHub repository for the phone to fetch.
+
+**Example Broadcast:**
+`"Download from: https://raw.githubusercontent.com/Ada40/modular-computer/main/modules/esp32/[filename]"`
 
 **Example (`esp32-plugin/src/main.cpp`):**
 
@@ -80,7 +84,7 @@ The `phone-app` directory contains the React Native application built with Expo.
 
 - **Module Discovery**: Scans for available hardware modules via Bluetooth and Wi-Fi (mDNS).
 - **Connection Management**: Handles connecting to and disconnecting from modules.
-- **Auto-Provisioning**: Utilizes the `ModularComputerProvisioner` to download and install necessary drivers or firmware updates for connected modules.
+- **Auto-Provisioning**: Utilizes the `ModularComputerProvisioner` to download and install necessary drivers or firmware updates for connected modules from the GitHub repository.
 - **Integrated Development Environment (IDE)**: Provides a platform for writing, compiling, and flashing code to the modules.
 - **User Interface**: Displays connected modules, their status, and quick actions.
 

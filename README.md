@@ -26,21 +26,27 @@ Turn your phone into the core of a modular computer system where:
 - `docs/`: Detailed documentation and architectural guides.
 - `examples/`: Example projects and use cases.
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Auto-Magic Activation)
 
-### 1. Flash ESP32 Once (Smart Loader)
+### 1. Flash ESP32 Smart Loader
 ```bash
 cd esp32-plugin
 platformio run --target upload
+# ESP32 boots → analyzes hardware → generates needs list
 ```
 
-### 2. Run Phone App
+### 2. Start Phone App
 ```bash
 cd phone-app
 npm install
 expo start
-# Scan QR code with Expo Go app
+# App scans for ESP32 → receives needs → auto-downloads from GitHub
 ```
+
+### 3. Watch Auto-Magic
+- **ESP32**: "I need `wifi-manager-v2.1.bin` from GitHub"
+- **Phone**: "Downloading from `Ada40/modular-computer`..."
+- **ESP32**: "Installing... rebooting... ready!"
 
 ## 🛠️ Architecture
 
